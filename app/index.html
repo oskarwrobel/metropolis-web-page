@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="The city that never sleeps.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metropolis - Joanna Ławniczak</title>
+
+  <link href="/images/favicon-32.png" rel="shortcut icon" type="image/x-icon">
+
+  <meta property="og:site_name" content="Metropolis - Joanna Ławniczak">
+  <meta property="og:title" content="Metropolis - Joanna Ławniczak">
+  <meta property="og:description" content="The city that never sleeps.">
+  <meta property="og:url" content="http://joannalawniczak.com/projects/metropolis">
+  <meta property="og:image" content="http://joannalawniczak.com/projects/images/logo.png">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:title" content="Metropolis - Joanna Ławniczak">
+  <meta name="twitter:description" content="The city that never sleeps.">
+  <meta name="twitter:url" content="http://joannalawniczak.com/projects/metropolis">
+  <meta name="twitter:image" content="http://joannalawniczak.com/projects/images/logo.png">
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="bower_components/load-awesome/css/ball-clip-rotate.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <link href="http://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+  <div class="page-loader la-ball-clip-rotate">
+    <div></div>
+  </div>
+
+  <div class="wrapper">
+    <div class="social-bar">
+      <ul>
+        <li>
+          <a id="info-box-trigger" class="info-box-trigger" href="#open-info-box" title="Information">
+            <i class="icon icon-dots-three-horizontal"></i>
+          </a>
+        </li>
+        <li>
+          <div class="fb-like"
+               data-href="http://joannalawniczak.com/projects/metropolis"
+               data-layout="button_count"
+               data-action="like"
+               data-show-faces="false"
+               data-share="false">
+          </div>
+        </li>
+        <li>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://joannalawniczak.com/projects/metropolis" data-text="Metropolis. The city that never sleeps. Illustration by Joanna Ławniczak" data-via="asialawniczak">Tweet</a>
+        </li>
+      </ul>
+    </div>
+
+    <ul id="scene" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="10">
+
+      <li class="layer" data-depth="0.02">
+        <div class="moon">
+          <img src="/images/moon.png" class="decoration">
+        </div>
+
+        <div class="cloud cloud-1" id="cloud-1">
+          <img src="/images/cloud-1.png" class="decoration">
+        </div>
+        <div class="cloud cloud-2" id="cloud-2">
+          <img src="/images/cloud-2.png" class="decoration">
+        </div>
+        <div class="cloud cloud-3" id="cloud-3">
+          <img src="/images/cloud-3.png" class="decoration">
+        </div>
+      </li>
+
+      <li class="layer" data-depth="0.03">
+        <div class="birds" id="birds">
+          <div class="bird bird-1"></div>
+          <div class="bird bird-2"></div>
+          <div class="bird bird-3"></div>
+          <div class="bird bird-4"></div>
+          <div class="bird bird-5"></div>
+        </div>
+      </li>
+
+      <li class="layer" data-depth="0.04">
+        <div class="building building-rataje" data-lights-on-at-start="half">
+          <img src="/images/building-rataje.jpg" class="decoration">
+          <div class="light c2 r1"></div>
+          <div class="light c2 r4"></div>
+          <div class="light c2 r8"></div>
+          <div class="light c2 r11"></div>
+          <div class="light c3 r1"></div>
+          <div class="light c3 r2"></div>
+          <div class="light c3 r7"></div>
+          <div class="light c3 r8"></div>
+          <div class="light c4 r2"></div>
+          <div class="light c4 r6"></div>
+          <div class="light c4 r7"></div>
+          <div class="light c4 r9"></div>
+          <div class="light c4 r11"></div>
+          <div class="light c5 r1"></div>
+          <div class="light c5 r4"></div>
+          <div class="light c5 r5"></div>
+          <div class="light c5 r8"></div>
+          <div class="light c5 r9"></div>
+          <div class="light c5 r10"></div>
+          <div class="light c6 r1"></div>
+          <div class="light c6 r2"></div>
+          <div class="light c6 r4"></div>
+          <div class="light c6 r6"></div>
+          <div class="light c6 r7"></div>
+          <div class="light c6 r11"></div>
+        </div>
+      </li>
+
+      <li class="layer" data-depth="0.06">
+        <div class="building building-glass" data-lights-sensitivity-start="20" data-lights-sensitivity-stop="30" data-lights-on-at-start="1" data-max-lights="1">
+          <img src="/images/building-glass.jpg" class="decoration">
+          <div class="light r4" data-blink-class="blink"></div>
+          <div class="light r6" data-blink-class="blink"></div>
+        </div>
+      </li>
+
+      <li class="layer" data-depth="0.13">
+        <div class="building building-balcony" data-lights-on-at-start="4">
+          <img src="/images/building-balcony.jpg" class="decoration">
+          <div class="light c1 r2"></div>
+          <div class="light c1 r4"></div>
+          <div class="light c1 r6"></div>
+          <div class="light c1 r7"></div>
+          <div class="light c2 r1"></div>
+          <div class="light c2 r3"></div>
+          <div class="light c2 r7"></div>
+          <div class="light c3 r2"></div>
+          <div class="light c3 r5"></div>
+          <div class="light c3 r7"></div>
+        </div>
+      </li>
+
+      <li class="layer" data-depth="0.09">
+        <div class="building building-apartment" data-lights-on-at-start="2" data-max-lights="3">
+          <img src="/images/building-apartment.jpg" class="decoration">
+          <div class="light c1 r1"></div>
+          <div class="light c1 r4"></div>
+          <div class="light c1 r7"></div>
+          <div class="light c2 r2"></div>
+          <div class="light c2 r3"></div>
+          <div class="light c2 r6"></div>
+          <div class="light c3 r2"></div>
+          <div class="light c3 r5"></div>
+          <div data-blink class="neon"></div>
+          <div class="smoker"></div>
+        </div>
+      </li>
+
+      <li class="layer" data-depth="0.2">
+        <div class="building building-crime">
+          <img src="/images/building-crime.jpg" class="decoration">
+          <div class="crime-scene"></div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+  <div id="info-box" class="info-box just-modal">
+    <div class="just-modal-backdrop"></div>
+    <div class="just-modal-content">
+      <h1>Metropolis</h1>
+      <p class="lead">The city that never sleeps</p>
+
+      <p>Illustrated by <a href="/" target="_blank">Joanna</a></p>
+      <p>Coded by <a href="http://www.oskarwrobel.pl" target="_blank">Oskar</a></p>
+
+      <a href="#close" class="close" title="Close"><i class="icon icon-close"></i></a>
+    </div>
+  </div>
+
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Twitter SDK -->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='https://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
+  </script>
+
+  <!-- build:js scripts/app.js -->
+  <script src="bower_components/lodash/lodash.js"></script>
+  <script src="bower_components/q/q.js"></script>
+  <script src="bower_components/parallax/deploy/parallax.js"></script>
+  <script src="bower_components/gsap/src/uncompressed/plugins/CSSPlugin.js"></script>
+  <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+  <script src="scripts/namespace.js"></script>
+  <script src="scripts/images.js"></script>
+  <script src="scripts/utils/imagesPreLoader.js"></script>
+  <script src="scripts/utils/JustModal.js"></script>
+  <script src="scripts/utils/transitionEnd.js"></script>
+  <script src="scripts/Randomizer.js"></script>
+  <script src="scripts/Motion.js"></script>
+  <script src="scripts/Blink.js"></script>
+  <script src="scripts/buildings/Light.js"></script>
+  <script src="scripts/buildings/Lights.js"></script>
+  <script src="scripts/buildings/Building.js"></script>
+  <script src="scripts/buildings/Buildings.js"></script>
+  <script src="scripts/Clouds.js"></script>
+  <script src="scripts/app.js"></script>
+  <!-- endbuild -->
+
+</body>
+</html>
