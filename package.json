@@ -6,8 +6,7 @@
     "lint": "eslint --quiet '**/*.js'",
     "build": "webpack --config dev/webpack.config.js --mode development",
     "build:production": "webpack --config dev/webpack.config.js --mode production --optimize-minimize --env.analytics=UA-11153361-29",
-    "serve": "http-server ./dist/",
-    "deploy": "npm run lint && node ./dev/deploy"
+    "serve": "http-server ./dist/"
   },
   "author": "Oskar Wrobel",
   "dependencies": {},
