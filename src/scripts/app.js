@@ -12,8 +12,8 @@ new Parallax( document.getElementById( 'scene' ) );
 // Moving clouds and birds on the sky.
 horizontalMove( document.querySelector( '#birds' ), 'left', 50, 10 );
 horizontalMove( document.querySelector( '#cloud-1' ), 'right', 60, 0 );
-horizontalMove( document.querySelector( '#cloud-2' ), 'right', 45, 10 );
-horizontalMove( document.querySelector( '#cloud-3' ), 'right', 50, 25 );
+horizontalMove( document.querySelector( '#cloud-2' ), 'right', 45, 15 );
+horizontalMove( document.querySelector( '#cloud-3' ), 'right', 55, 10 );
 
 // Blinking "Kosmos" neon.
 blink(
