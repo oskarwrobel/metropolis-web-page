@@ -21,89 +21,11 @@ body {
     background: #141010;
 }
 
-/* SOCIAL BAR
- * ----------------------------------- */
-.info {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-    opacity: 0.6;
-    transition: opacity .2s;
-
-    &:hover {
-        opacity: 1;
-    }
-
-    .info-box-trigger {
-        display: inline-block;
-        font-size: 20px;
-        color: #fff;
-        vertical-align: middle;
-        text-decoration: none;
-    }
-}
-
-/* INFO BOX
- * ----------------------------------- */
-.info-box .just-modal-content {
-    color: #000;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: 14px;
-    padding: 50px 150px 70px;
-    width: auto;
-
-    h1 {
-        margin: 0;
-        font-size: 34px;
-        font-weight: 300;
-        letter-spacing: 7px;
-    }
-
-    p {
-        margin: 0;
-
-        &.lead {
-            display: inline-block;
-            font-size: 14px;
-            margin: 5px 0 25px;
-            padding: 0 30px 25px;
-            border-bottom: solid 1px #000;
-        }
-
-        a {
-            color: #6f6968;
-            text-decoration: none;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-}
-
 /* HELPERS
  * ----------------------------------- */
 .decoration {
     display: block;
     width: 100%;
-}
-
-/* PAGE LOADER
- * ----------------------------------- */
-.page-loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -30px 0 0 -30px;
-    opacity: 0;
-    transition: opacity .5s ease-in;
-
-    .loading & {
-        opacity: .5;
-    }
 }
 
 /* LAYOUT
@@ -172,24 +94,21 @@ body {
 .cloud-2,
 .cloud-3 {
     position: absolute;
-    left: -650px;
     top: 50px;
+    transform: translateZ(0);
 
     @media only screen and(max-width: $laptop) {
         width: 500px;
-        left: -500px;
         top: 40px;
     }
 
     @media only screen and(max-height: $height) {
         width: 430px;
-        left: -430px;
         top: 30px;
     }
 
     @media only screen and(max-device-width: $mobile) {
         width: 390px;
-        left: -390px;
         top: 30px;
     }
 }
@@ -206,6 +125,7 @@ body {
     top: 155px;
     width: 120px;
     height: 120px;
+    transform: translateZ(0);
 
     @media only screen and(max-width: $laptop) {
         top: 130px;
@@ -387,7 +307,7 @@ body {
             @each $row-top in $rows-top {
                 $i: index($rows-top, $row-top);
                 &.r#{$i} {
-                    top: #{$row-top}%;
+                    top: percentage($row-top/100);
                 }
             }
         }
@@ -477,7 +397,7 @@ body {
             @each $col-left in $cols-left {
                 $i: index($cols-left, $col-left);
                 &.c#{$i+1} {
-                    left: #{$col-left}%;
+                    left: percentage($col-left/100);
                 }
             }
 
@@ -485,7 +405,7 @@ body {
             @each $row-top in $rows-top {
                 $i: index($rows-top, $row-top);
                 &.r#{$i} {
-                    top: #{$row-top}%;
+                    top: percentage($row-top/100);
                 }
             }
         }
@@ -522,7 +442,7 @@ body {
             @each $col-left in $cols-left {
                 $i: index($cols-left, $col-left);
                 &.c#{$i} {
-                    left: #{$col-left}%;
+                    left: percentage($col-left/100);
                 }
             }
 
@@ -530,7 +450,7 @@ body {
             @each $row-top in $rows-top {
                 $i: index($rows-top, $row-top);
                 &.r#{$i} {
-                    top: #{$row-top}%;
+                    top: percentage($row-top/100);
                 }
             }
         }
@@ -568,7 +488,7 @@ body {
                 }
             }
 
-            &.active {
+            &.blink {
                 animation: neon .1s steps(2) infinite;
             }
         }
