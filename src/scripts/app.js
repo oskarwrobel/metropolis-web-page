@@ -22,6 +22,7 @@ blink(
 	() => random( 8, 12 )
 );
 
+// Lights inside a buildings.
 for ( const building of document.querySelectorAll( '.building' ) ) {
 	const lights = building.querySelectorAll( '.light' );
 	const length = lights.length;
@@ -35,14 +36,6 @@ for ( const building of document.querySelectorAll( '.building' ) ) {
 			lights[ random( 0, length - 1 ) ].classList.toggle( 'active' );
 		}, () => random( 2.5, 6 ) );
 	}
-}
-
-function blink( element, getBlinkingDuration, getRepeatDelay ) {
-	repeat( async () => {
-		element.classList.add( 'blink' );
-		await wait( getBlinkingDuration() );
-		element.classList.remove( 'blink' );
-	}, getRepeatDelay );
 }
 
 function horizontalMove( element, direction, duration, delay ) {
@@ -71,4 +64,12 @@ function horizontalMove( element, direction, duration, delay ) {
 			element.style.left = ( direction === 'right' ? rightBound : leftBound );
 		} );
 	}, () => duration + delay );
+}
+
+function blink( element, getBlinkingDuration, getRepeatDelay ) {
+	repeat( async () => {
+		element.classList.add( 'blink' );
+		await wait( getBlinkingDuration() );
+		element.classList.remove( 'blink' );
+	}, getRepeatDelay );
 }
