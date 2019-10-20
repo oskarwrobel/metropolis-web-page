@@ -5,37 +5,64 @@ import { random, repeat, wait, requestAnimationFramePromise } from './utils';
 
 import '../styles/app.scss';
 
-// Parallax effect.
-// eslint-disable-next-line no-new
-new Parallax( document.getElementById( 'scene' ) );
+const progressElement = document.querySelector( '#progress' );
 
-// Moving clouds and birds on the sky.
-horizontalMove( document.querySelector( '#birds' ), 'left', 50, 10 );
-horizontalMove( document.querySelector( '#cloud-1' ), 'right', 60, 0 );
-horizontalMove( document.querySelector( '#cloud-2' ), 'right', 45, 15 );
-horizontalMove( document.querySelector( '#cloud-3' ), 'right', 55, 10 );
+loadImages(
+	window.appData.images,
+	value => ( progressElement.style.width = `${ value }%` )
+).then( () => {
+	document.body.classList.remove( 'loading' );
 
-// Blinking "Kosmos" neon.
-blink(
-	document.querySelector( '#neon' ),
-	() => random( 0.4, 1 ),
-	() => random( 8, 12 )
-);
+	// Parallax effect.
+	// eslint-disable-next-line no-new
+	new Parallax( document.getElementById( 'scene' ) );
 
-// Lights inside a buildings.
-for ( const building of document.querySelectorAll( '.building' ) ) {
-	const lights = building.querySelectorAll( '.light' );
-	const length = lights.length;
+	// Moving clouds and birds on the sky.
+	horizontalMove( document.querySelector( '#birds' ), 'left', 50, 10 );
+	horizontalMove( document.querySelector( '#cloud-1' ), 'right', 60, 0 );
+	horizontalMove( document.querySelector( '#cloud-2' ), 'right', 45, 15 );
+	horizontalMove( document.querySelector( '#cloud-3' ), 'right', 55, 10 );
 
-	if ( length ) {
-		for ( let i = 0; i < length / 2; i++ ) {
-			lights[ random( 0, length - 1 ) ].classList.add( 'active' );
+	// Blinking "Kosmos" neon.
+	blink(
+		document.querySelector( '#neon' ),
+		() => random( 0.4, 1 ),
+		() => random( 8, 12 )
+	);
+
+	// Lights inside a buildings.
+	for ( const building of document.querySelectorAll( '.building' ) ) {
+		const lights = building.querySelectorAll( '.light' );
+		const length = lights.length;
+
+		if ( length ) {
+			for ( let i = 0; i < length / 2; i++ ) {
+				lights[ random( 0, length - 1 ) ].classList.add( 'active' );
+			}
+
+			repeat( () => {
+				lights[ random( 0, length - 1 ) ].classList.toggle( 'active' );
+			}, () => random( 2.5, 6 ) );
 		}
-
-		repeat( () => {
-			lights[ random( 0, length - 1 ) ].classList.toggle( 'active' );
-		}, () => random( 2.5, 6 ) );
 	}
+} ).catch( error => console.error( error ) );
+
+function loadImages( images, onProgress ) {
+	let loadedImages = 0;
+
+	return Promise.all( images.map( imagePath => {
+		return new Promise( ( resolve, reject ) => {
+			const imageElement = new Image();
+
+			imageElement.addEventListener( 'load', () => {
+				onProgress( ( ++loadedImages * 100 ) / images.length );
+				resolve();
+			} );
+			imageElement.addEventListener( 'error', reject );
+
+			imageElement.src = imagePath;
+		} );
+	} ) );
 }
 
 function horizontalMove( element, direction, duration, delay ) {

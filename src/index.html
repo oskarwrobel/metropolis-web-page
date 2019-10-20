@@ -18,7 +18,11 @@
 
 	<link href="${ require(`./images/favicon-32.png`) }" rel="shortcut icon" type="image/x-icon">
 </head>
-<body>
+<body class="loading">
+
+<div class="progress-wrapper">
+	<div id="progress" class="progress"></div>
+</div>
 
 <div class="wrapper">
 	<ul id="scene" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="10">
@@ -130,6 +134,31 @@
 
 	</ul>
 </div>
+
+<script>
+	window.appData = { images: [
+		'${ require(`./images/bird.png`) }',
+		'${ require(`./images/building-apartment.jpg`) }',
+		'${ require(`./images/building-apartment-light.png`) }',
+		'${ require(`./images/building-apartment-neon.png`) }',
+		'${ require(`./images/building-apartment-smoker.png`) }',
+		'${ require(`./images/building-apartment-tv-set.png`) }',
+		'${ require(`./images/building-balcony.jpg`) }',
+		'${ require(`./images/building-balcony-light-c1.png`) }',
+		'${ require(`./images/building-balcony-light-c2.png`) }',
+		'${ require(`./images/building-balcony-light-c3.png`) }',
+		'${ require(`./images/building-crime.jpg`) }',
+		'${ require(`./images/building-glass.jpg`) }',
+		'${ require(`./images/building-glass-light.png`) }',
+		'${ require(`./images/building-rataje.jpg`) }',
+		'${ require(`./images/building-rataje-light.png`) }',
+		'${ require(`./images/cloud-1.png`) }',
+		'${ require(`./images/cloud-2.png`) }',
+		'${ require(`./images/cloud-3.png`) }',
+		'${ require(`./images/crime-scene.png`) }',
+		'${ require(`./images/moon.png`) }'
+	] };
+</script>
 
 </body>
 </html>

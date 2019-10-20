@@ -55,6 +55,33 @@ body {
 	pointer-events: none;
 }
 
+/* PROGRESS BAR
+ * ----------------------------------- */
+.progress-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-200px, -10px);
+	width: 400px;
+	height: 20px;
+	border: solid 2px #e1e1e1;
+	display: none;
+
+	.loading & {
+		display: block;
+	}
+
+	.progress {
+		background: #e1e1e1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 0;
+		transition: width .1s linear;
+	}
+}
+
 /* MOON
  * ----------------------------------- */
 .moon {
