@@ -1,7 +1,7 @@
 /* eslint-env browser */
 
 import Parallax from 'parallax-js';
-import { random, repeat, wait, requestAnimationFramePromise } from './utils';
+import { loadImages, blink, horizontalMove, random, repeat, wait } from './utils';
 
 import '../styles/app.scss';
 
@@ -49,57 +49,3 @@ loadImages(
 		}
 	} )
 	.catch( error => console.error( error ) );
-
-function loadImages( images, onProgress ) {
-	let loadedImages = 0;
-
-	return Promise.all( images.map( imagePath => {
-		return new Promise( ( resolve, reject ) => {
-			const imageElement = new Image();
-
-			imageElement.addEventListener( 'load', () => {
-				onProgress( ( ++loadedImages * 100 ) / images.length );
-				resolve();
-			} );
-			imageElement.addEventListener( 'error', reject );
-
-			imageElement.src = imagePath;
-		} );
-	} ) );
-}
-
-function horizontalMove( element, direction, duration, delay ) {
-	repeat( async () => {
-		const elementWidth = element.clientWidth;
-		const leftBound = -elementWidth + 'px';
-		const rightBound = `calc( 100% + ${ elementWidth }px )`;
-
-		element.style.width = element.clientWidth + 'px';
-
-		await requestAnimationFramePromise( () => {
-			element.style.transition = null;
-		} );
-
-		await requestAnimationFramePromise( () => {
-			element.style.left = ( direction === 'right' ? leftBound : rightBound );
-		} );
-
-		await wait( delay );
-
-		await requestAnimationFramePromise( () => {
-			element.style.transition = `left ${ duration }s linear ${ delay }s`;
-		} );
-
-		await requestAnimationFramePromise( () => {
-			element.style.left = ( direction === 'right' ? rightBound : leftBound );
-		} );
-	}, () => duration + delay );
-}
-
-function blink( element, getBlinkingDuration, getRepeatDelay ) {
-	repeat( async () => {
-		element.classList.add( 'blink' );
-		await wait( getBlinkingDuration() );
-		element.classList.remove( 'blink' );
-	}, getRepeatDelay );
-}
