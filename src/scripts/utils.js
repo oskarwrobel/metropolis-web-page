@@ -12,7 +12,6 @@ export function loadImages( images, onProgress ) {
 				resolve();
 			} );
 			imageElement.addEventListener( 'error', reject );
-
 			imageElement.src = imagePath;
 		} );
 	} ) );
