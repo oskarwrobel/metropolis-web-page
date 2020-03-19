@@ -4,17 +4,17 @@
 
 const path = require( 'path' );
 const { DefinePlugin } = require( 'webpack' );
-const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 
 module.exports = ( env = {} ) => {
+	const projectDir = path.dirname( __filename );
 	const entry = [
-		path.join( process.cwd(), 'src', 'scripts', 'app.js' )
+		path.join( projectDir, 'src', 'scripts', 'app.js' )
 	];
 
 	if ( env.analytics ) {
-		entry.push( path.join( process.cwd(), 'src', 'scripts', 'analytics.js' ) );
+		entry.push( path.join( projectDir, 'src', 'scripts', 'analytics.js' ) );
 	}
 
 	const webpackConfig = {
@@ -55,9 +55,9 @@ module.exports = ( env = {} ) => {
 		},
 
 		plugins: [
-			new CleanWebpackPlugin(),
 			new HtmlWebpackPlugin( {
-				template: path.join( process.cwd(), 'src', 'index.html' )
+				template: path.join( projectDir, 'src', 'index.html' ),
+				filename: 'metropolis.html'
 			} ),
 			new MiniCssExtractPlugin( {
 				filename: '[name].[contenthash].css'
