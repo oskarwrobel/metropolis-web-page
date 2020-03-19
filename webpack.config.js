@@ -17,8 +17,10 @@ module.exports = ( env = {} ) => {
 		entry.push( path.join( projectDir, 'src', 'scripts', 'analytics.js' ) );
 	}
 
-	const webpackConfig = {
+	return {
 		entry,
+
+		context: path.resolve( projectDir ),
 
 		output: {
 			filename: '[name].[contenthash].js',
@@ -32,7 +34,7 @@ module.exports = ( env = {} ) => {
 					test: /\.scss$/,
 					use: [
 						{
-							loader: MiniCssExtractPlugin.loader,
+							loader: MiniCssExtractPlugin.loader
 						},
 						'css-loader',
 						'sass-loader'
@@ -67,6 +69,4 @@ module.exports = ( env = {} ) => {
 			} )
 		]
 	};
-
-	return webpackConfig;
 };
