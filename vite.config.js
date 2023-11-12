@@ -17,6 +17,6 @@ export default defineConfig({
     }),
   ],
   define: {
-    ANALYTICS: JSON.stringify(process.env.analytics),
+    ANALYTICS: JSON.stringify(process.env.ANALYTICS),
   },
 });
