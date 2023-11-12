@@ -2,44 +2,35 @@
   "name": "metropolis",
   "version": "0.0.1",
   "description": "The city that never sleeps.",
-  "scripts": {
-    "lint": "eslint --quiet '**/*.js'",
-    "clean": "rm -rf ./dist",
-    "build": "npm run clean && webpack --mode development",
-    "build:production": "npm run clean && webpack --mode production --optimize-minimize",
-    "serve": "http-server ./dist/"
-  },
   "author": "Oskar Wrobel",
+  "scripts": {
+    "lint": "tsc --noEmit && eslint --quiet '**/*.{js,ts}' && prettier --check '**/*.scss'",
+    "lint:fix": "eslint --fix '**/*.{js,ts}' && prettier --write '**/*.scss'",
+    "start": "vite",
+    "preview": "vite preview",
+    "build": "vite build"
+  },
   "dependencies": {
     "parallax-js": "^3.1.0"
   },
   "devDependencies": {
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.2.0",
-    "eslint": "^6.5.1",
-    "eslint-config-ckeditor5": "^2.0.0",
-    "file-loader": "^4.2.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "http-server": "^0.11.1",
-    "husky": "^3.0.8",
-    "imports-loader": "^0.8.0",
-    "lint-staged": "^9.4.2",
-    "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.0",
-    "webpack": "^4.41.1",
-    "webpack-cli": "^3.3.9"
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.0.3",
+    "sass": "^1.69.5",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vite-plugin-html": "^3.2.0"
   },
   "lint-staged": {
-    "**/*.js": [
+    "**/*.(ts|js)": [
       "eslint --quiet"
     ]
   },
-  "eslintIgnore": [
-    "dist/**",
-    "src/scripts/analytics.js"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

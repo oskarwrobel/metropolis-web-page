@@ -1,50 +1,96 @@
 /* eslint-env browser */
 
-import Parallax from 'parallax-js';
-import { loadImages, blink, horizontalMove, random, repeat, wait } from './utils';
+import Parallax from "parallax-js";
+import { loadImages, blink, horizontalMove, random, repeat, wait } from "./utils";
 
-import '../styles/app.scss';
+import img1 from "../images/bird.png";
+import img2 from "../images/building-apartment.jpg";
+import img3 from "../images/building-apartment-light.png";
+import img4 from "../images/building-apartment-neon.png";
+import img5 from "../images/building-apartment-smoker.png";
+import img6 from "../images/building-apartment-tv-set.png";
+import img7 from "../images/building-balcony.jpg";
+import img8 from "../images/building-balcony-light-c1.png";
+import img9 from "../images/building-balcony-light-c2.png";
+import img10 from "../images/building-balcony-light-c3.png";
+import img11 from "../images/building-crime.jpg";
+import img12 from "../images/building-glass.jpg";
+import img13 from "../images/building-glass-light.png";
+import img14 from "../images/building-rataje.jpg";
+import img15 from "../images/building-rataje-light.png";
+import img16 from "../images/cloud-1.png";
+import img17 from "../images/cloud-2.png";
+import img18 from "../images/cloud-3.png";
+import img19 from "../images/crime-scene.png";
+import img20 from "../images/moon.png";
 
-( async () => {
-	const { images } = window.appData;
-	const progressElement = document.querySelector( '#progress' );
+import "./analytics";
 
-	await loadImages( images, value => ( progressElement.style.width = `${ value }%` ) );
-	await wait( .3 ); // To finish progress animation (visual purpose).
+export async function app() {
+  const progressElement = document.querySelector("#progress");
 
-	// Parallax effect.
-	// eslint-disable-next-line no-new
-	new Parallax( document.getElementById( 'scene' ) );
+  await loadImages(images, (value) => (progressElement.style.width = `${value}%`));
+  await wait(0.3); // To finish progress animation (visual purpose).
 
-	// Moving clouds and birds on the sky.
-	horizontalMove( document.querySelector( '#birds' ), 'left', 50, 10 );
-	horizontalMove( document.querySelector( '#cloud-1' ), 'right', 60, 0 );
-	horizontalMove( document.querySelector( '#cloud-2' ), 'right', 45, 15 );
-	horizontalMove( document.querySelector( '#cloud-3' ), 'right', 55, 10 );
+  // Parallax effect.
+  // eslint-disable-next-line no-new
+  new Parallax(document.getElementById("scene"));
 
-	// Blinking "Kosmos" neon.
-	blink(
-		document.querySelector( '#neon' ),
-		() => random( 0.4, 1 ),
-		() => random( 8, 12 )
-	);
+  // Moving clouds and birds on the sky.
+  horizontalMove(document.querySelector("#birds"), "left", 50, 10);
+  horizontalMove(document.querySelector("#cloud-1"), "right", 60, 0);
+  horizontalMove(document.querySelector("#cloud-2"), "right", 45, 15);
+  horizontalMove(document.querySelector("#cloud-3"), "right", 55, 10);
 
-	// Lights inside a buildings.
-	for ( const building of document.querySelectorAll( '.building' ) ) {
-		const lights = building.querySelectorAll( '.light' );
-		const length = lights.length;
+  // Blinking "Kosmos" neon.
+  blink(
+    document.querySelector("#neon"),
+    () => random(0.4, 1),
+    () => random(8, 12),
+  );
 
-		if ( length ) {
-			for ( let i = 0; i < length / 2; i++ ) {
-				lights[ random( 0, length - 1 ) ].classList.add( 'active' );
-			}
+  // Lights inside a buildings.
+  for (const building of document.querySelectorAll(".building")) {
+    const lights = building.querySelectorAll(".light");
+    const length = lights.length;
 
-			repeat( () => {
-				lights[ random( 0, length - 1 ) ].classList.toggle( 'active' );
-			}, () => random( 2.5, 6 ) );
-		}
-	}
+    if (length) {
+      for (let i = 0; i < length / 2; i++) {
+        lights[random(0, length - 1)].classList.add("active");
+      }
 
-	// Show up.
-	document.body.classList.remove( 'loading' );
-} )();
+      repeat(
+        () => {
+          lights[random(0, length - 1)].classList.toggle("active");
+        },
+        () => random(2.5, 6),
+      );
+    }
+  }
+
+  // Show up.
+  document.body.classList.remove("loading");
+}
+
+const images = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
+  img15,
+  img16,
+  img17,
+  img18,
+  img19,
+  img20,
+];
